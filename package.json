@@ -1,0 +1,32 @@
+{
+  "name": "dinedash",
+  "version": "1.0.0",
+  "description": "DineDash App for RCB",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UlysesAColon/DineDash.git"
+  },
+  "author": "Ulyses Anthony Cornelius Drew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UlysesAColon/DineDash/issues"
+  },
+  "homepage": "https://github.com/UlysesAColon/DineDash#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.14"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
