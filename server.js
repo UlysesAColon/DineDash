@@ -1,10 +1,17 @@
+var PORT = 5000
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const items = require('./routes/api/items');
-
 const app = express();
+
+var http = require('http')
+var server = http.Server(app);
+
+server.listen(PORT, function() {
+  console.log('Chat server running');
+});
 
 // Bodyparser Middleware
 app.use(bodyParser.json());
