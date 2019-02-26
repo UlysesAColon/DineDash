@@ -8,10 +8,6 @@ const app = express();
 var http = require('http')
 var server = http.Server(app);
 
-server.listen(PORT, function() {
-  console.log('Chat server running');
-});
-
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
@@ -27,6 +23,6 @@ mongoose
 // Use Routes
 app.use('/api/items', items);
 
-  const PORT = process.env.PORT || 5000;
+  const port = process.env.PORT || 5000;
 
   app.listen(port, () => console.log(`Server started on port ${port}`));
