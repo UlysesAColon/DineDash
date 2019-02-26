@@ -50,7 +50,7 @@ class ItemModal extends Component {
           style={{ marginBottom: '2rem' }}
           onClick={this.toggle}
         >
-          Add Item
+          New Menu Item
         </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -63,11 +63,11 @@ class ItemModal extends Component {
                   type="text"
                   name="name"
                   id="item"
-                  placeholder="Add shopping item"
+                  placeholder="Add menu item"
                   onChange={this.onChange}
                 />
                 <Button color="dark" style={{ marginTop: '2rem' }} block>
-                  Add Item
+                  Add Menu Item
                 </Button>
               </FormGroup>
             </Form>
