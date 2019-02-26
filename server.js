@@ -14,6 +14,14 @@ app.use(bodyParser.json());
 //  DB Config
 const db = require('./config/keys.js').mongoURI;
 
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 // Connect to Mongo
 mongoose
   .connect(db)
