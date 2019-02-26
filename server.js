@@ -35,9 +35,3 @@ app.use('/api/items', items);
 
   app.listen(port, () => console.log(`Server started on port ${port}`));
 
-  var reqTimer = setTimeout(function wakeUp() {
-    request("https://dine-dash.herokuapp.com/", function() {
-       console.log("WAKE UP DYNO");
-    });
-    return reqTimer = setTimeout(wakeUp, 1200000);
- }, 1200000);
