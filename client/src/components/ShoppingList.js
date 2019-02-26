@@ -29,7 +29,7 @@ class ShoppingList extends Component {
                     size="sm"
                     onClick={this.onDeleteClick.bind(this, _id)}
                   >
-                   Remove Item 
+                   Remove Menu Item 
                   </Button>
                   {name}
                 </ListGroupItem>
