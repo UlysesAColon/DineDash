@@ -8,8 +8,6 @@ const app = express();
 var http = require('http')
 var server = http.Server(app);
 
-const port = process.env.PORT || 5000;
-
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
@@ -33,5 +31,6 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/../client/public/index.html');
 });
 
-  app.listen(port, () => console.log(`Server started on port ${port}`));
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server started on port ${port}`));
 
