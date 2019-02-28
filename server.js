@@ -27,7 +27,7 @@ mongoose
 app.use('/api/items', items);
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + './client/public/index.html');
 });
 
   app.listen(port, () => console.log(`Server started on port ${port}`));
