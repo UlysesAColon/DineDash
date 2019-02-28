@@ -29,7 +29,7 @@ var path = require('path');
 
 app.get('/', function(req, res){
   res.sendFile(path.resolve('client/public/index.html'));
-  res.sendFile(path.join(__dirname + '/../index.html'));
+  res.sendFile(path.join(__dirname + '/../client/public/index.html'));
 });
 
 const port = process.env.PORT || 5000;
