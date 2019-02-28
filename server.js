@@ -8,11 +8,14 @@ const app = express();
 var http = require('http')
 var server = http.Server(app);
 
+const port = process.env.PORT || 5000;
+
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
 //  DB Config
 const db = require('./config/keys.js').mongoURI;
+
 
 // Connect to Mongo
 mongoose
@@ -23,8 +26,8 @@ mongoose
 // Use Routes
 app.use('/api/items', items);
 
-  const port = process.env.PORT || 5000;
 
+app.use('/', express.static('public'));
   app.use(express.static(__dirname + './client/public/index.html'))
 
   app.listen(port, () => console.log(`Server started on port ${port}`));
