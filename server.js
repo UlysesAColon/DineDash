@@ -27,7 +27,7 @@ app.use('/api/items', items);
 var path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/public'));
+  app.use(express.static('client/public/index.html'));
 }
 
 app.get('*', function(req, res){
