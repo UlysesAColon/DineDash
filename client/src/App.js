@@ -9,16 +9,22 @@ import store from './store';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import AddTable from './components/AddTable';
+import TableButtonModal from './components/Table/TableButtonModal';
+
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <div className="App">
-          <AppNavbar />
+          <AppNavbar />      
           <Container>
-            <ItemModal />
+            <AddTable />
             <ShoppingList />
+          </Container>
+          <Container>
+            <TableButtonModal />
           </Container>
         </div>
       </Provider>
