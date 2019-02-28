@@ -27,7 +27,7 @@ app.use('/api/items', items);
 var path = require('path');
 
 
-app.get('/', function(req, res){
+app.get('*', function(req, res){
   res.sendFile(path.resolve('client/public/index.html'));
   res.sendFile(path.join(__dirname + '/../client/public/index.html'));
 });
