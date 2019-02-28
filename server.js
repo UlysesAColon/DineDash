@@ -26,6 +26,9 @@ mongoose
 // Use Routes
 app.use('/api/items', items);
 
+var path = require('path');
+res.sendFile(path.resolve('client/public/index.html'));
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/../client/public/index.html');
 });
