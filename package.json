@@ -19,6 +19,11 @@
   "bugs": {
     "url": "https://github.com/UlysesAColon/DineDash/issues"
   },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
   "homepage": "https://github.com/UlysesAColon/DineDash#readme",
   "dependencies": {
     "and": "0.0.3",
