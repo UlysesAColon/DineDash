@@ -27,11 +27,10 @@ app.use('/api/items', items);
 var path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/public/index.html'));
+  app.use(express.static('client/public/'));
 }
 
 app.get('*', function(req, res){
-  res.sendFile(path.resolve('client/public/index.html'));
   res.sendFile(path.join(__dirname + '/../client/public/index.html'));
 });
 
