@@ -11,8 +11,6 @@ var server = http.Server(app);
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
-app.use('/', express.static('./client/public/index.html'));
-
 //  DB Config
 const db = require('./config/keys.js').mongoURI;
 
@@ -26,8 +24,8 @@ mongoose
 app.use('/api/items', items);
 
   const port = process.env.PORT || 5000;
-  
-  app.use(express.static(__dirname + '/public'))
+
+  app.use(express.static(__dirname + './client/public/index.html'))
 
   app.listen(port, () => console.log(`Server started on port ${port}`));
 
