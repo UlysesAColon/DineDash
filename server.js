@@ -26,9 +26,9 @@ mongoose
 // Use Routes
 app.use('/api/items', items);
 
-
-app.use('/', express.static('public'));
-  app.use(express.static(__dirname + './client/public/index.html'))
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
 
   app.listen(port, () => console.log(`Server started on port ${port}`));
 
