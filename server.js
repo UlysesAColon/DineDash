@@ -11,6 +11,8 @@ var server = http.Server(app);
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
+app.use('/', express.static('public/public'));
+
 //  DB Config
 const db = require('./config/keys.js').mongoURI;
 
