@@ -1,0 +1,7 @@
+{
+    "name": "DineDash",
+    "description": "App for resturants",
+    "repository": "https://github.com/UlysesAColon/DineDash",
+    "logo": "https://rawgit.com/heroku/node-js-sample/master/public/node.svg",
+    "keywords": ["node", "express", "static"]
+  }
