@@ -26,6 +26,7 @@ class ItemModal extends Component {
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log([e.target.value])
   };
 
   onSubmit = e => {
@@ -33,12 +34,12 @@ class ItemModal extends Component {
 
     const newItem = {
       name: this.state.name,
-      order: this.state.order
     };
 
     // Add item via addItem action
     this.props.addItem(newItem);
 
+    console.log(newItem);
     // Close modal
     this.toggle();
   };
@@ -64,7 +65,6 @@ class ItemModal extends Component {
                   type="number"
                   name="name"
                   id="item"
-                  order="chickenwings"
                   placeholder="Add new table"
                   onChange={this.onChange}
                 />

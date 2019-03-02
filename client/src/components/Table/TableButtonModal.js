@@ -6,6 +6,7 @@ import {
   ModalBody,
   Form,
   FormGroup,
+  Label,
   Input,
   Container
 } from 'reactstrap';
@@ -16,8 +17,9 @@ import { addItem } from '../../actions/itemActions';
 class TableButtonModal extends Component {
   state = {
     modal: false,
-    name: '',
-    order: '',
+    name: "",
+    order: "order",
+    orderamount: "Amount"
   };
 
   toggle = () => {
@@ -35,12 +37,15 @@ class TableButtonModal extends Component {
     e.preventDefault();
 
     const newItem = {
-      name: this.state.name
+      name: this.state.name,
+      order: this.state.order,
+      orderamount: this.state.orderamount
     };
 
     // Add item via addItem action
     this.props.addItem(newItem);
 
+    console.log(newItem);
     // Close modal
     this.toggle();
   };
