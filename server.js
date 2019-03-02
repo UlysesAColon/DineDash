@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 var path = require('path');
 
 const items = require('./routes/api/items');
+const orders = require('./routes/api/orders');
 const app = express();
 
 var http = require('http')
@@ -24,6 +25,7 @@ mongoose
 
 // Use Routes
 app.use('/api/items', items);
+app.use('/api/orders', orders);
 
 
 
