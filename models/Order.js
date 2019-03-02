@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Creat Schema
-const ItemSchema = new Schema({
+const OrderSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -17,4 +17,4 @@ const ItemSchema = new Schema({
     }
 });
 
-module.exports = Item = mongoose.model('item', ItemSchema);
+module.exports = Order = mongoose.model('order', OrderSchema);
