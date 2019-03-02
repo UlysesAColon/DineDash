@@ -1,14 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+var path = require('path');
 
 const items = require('./routes/api/items');
 const app = express();
 
 var http = require('http')
 var server = http.Server(app);
-
+app.use(express.static(path.join(__dirname, 'client','build')));
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
@@ -25,7 +25,7 @@ mongoose
 // Use Routes
 app.use('/api/items', items);
 
-var path = require('path');
+
 
 // app.use(express.static(path.join(__dirname, 'client/public')));
 
@@ -35,21 +35,10 @@ var path = require('path');
 //    res.sendFile(path.join(__dirname + '/../client/build/index.html'));
 //  });
 //}
-app.use(express.static(path.join(__dirname, 'client','build')));
-
-console.log(path.join(__dirname, 'client','build'))
 
 app.get('*', (req,res) =>{
   res.sendFile(path.join(__dirname,'client','build','index.html'));
 });
-
-
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-
-}
 
 // //build
 // app.get('*', (req, res) => {
