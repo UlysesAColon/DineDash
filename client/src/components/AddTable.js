@@ -62,7 +62,7 @@ class ItemModal extends Component {
               <FormGroup>
                 <Label for="item">Table Size</Label>
                 <Input
-                  type="number"
+                  type="text"
                   name="name"
                   id="item"
                   placeholder="Add new table"
