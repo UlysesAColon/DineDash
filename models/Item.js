@@ -10,6 +10,10 @@ const ItemSchema = new Schema({
     date:{
         type: Date,
         default: Date.now
+    },
+    order: {
+        type: String,
+        required: false
     }
 });
 

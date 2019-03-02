@@ -32,7 +32,8 @@ class ItemModal extends Component {
     e.preventDefault();
 
     const newItem = {
-      name: this.state.name
+      name: this.state.name,
+      order: this.state.order
     };
 
     // Add item via addItem action
@@ -63,6 +64,7 @@ class ItemModal extends Component {
                   type="number"
                   name="name"
                   id="item"
+                  order="chickenwings"
                   placeholder="Add new table"
                   onChange={this.onChange}
                 />
@@ -80,6 +82,7 @@ class ItemModal extends Component {
 
 const mapStateToProps = state => ({
   item: state.item
+
 });
 
 export default connect(

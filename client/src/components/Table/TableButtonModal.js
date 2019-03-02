@@ -6,7 +6,6 @@ import {
   ModalBody,
   Form,
   FormGroup,
-  Label,
   Input,
   Container
 } from 'reactstrap';
@@ -17,7 +16,8 @@ import { addItem } from '../../actions/itemActions';
 class TableButtonModal extends Component {
   state = {
     modal: false,
-    name: ''
+    name: '',
+    order: '',
   };
 
   toggle = () => {
@@ -27,7 +27,8 @@ class TableButtonModal extends Component {
   };
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.order]: e.target.value });
+    console.log([e.target.value]);
   };
 
   onSubmit = e => {
@@ -56,7 +57,7 @@ class TableButtonModal extends Component {
         </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Select Menu Item</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Current Order</ModalHeader>
           <ModalBody>
           <Container>
             <div>
@@ -64,26 +65,26 @@ class TableButtonModal extends Component {
               <FormGroup>
             <div className="radio">
             <label>
-            <Input type="radio" value="chicken_wings" checked={true} />
+            <Input type="radio" value="chicken_wings" onChange={this.onChange}/>
             Chicken Wings
-            <Input type="number" name="amount" id="itemamount" />
-            <Input type="text" name="note" id="noteid" />
+            <Input type="number" name="name" id="itemamount" onChange={this.onChange} />
+            <Input type="text" name="note" id="noteid" onChange={this.onChange} />
             </label>
             </div>
             <div className="radio">
             <label>
-            <Input type="radio" value="french_fries" />
+            <Input type="radio" value="french_fries" onChange={this.onChange}/>
             French Fries
-            <Input type="number" name="amount" id="itemamount" />
-            <Input type="text" name="note" id="noteid" />
+            <Input type="number" name="amount" id="itemamount" onChange={this.onChange} />
+            <Input type="text" name="note" id="noteid" onChange={this.onChange} />
             </label>
             </div>
             <div className="radio">
             <label>
-            <Input type="radio" value="Cheeseburger" />
+            <Input type="radio" value="Cheeseburger" onChange={this.onChange}  />
             Cheeseburger
-            <Input type="number" name="amount" id="itemamount" />
-            <Input type="text" name="note" id="noteid" />
+            <Input type="number" name="amount" id="itemamount" onChange={this.onChange}/>
+            <Input type="text" name="note" id="noteid" onChange={this.onChange}/>
             </label>
             </div>
                 <Button color="dark" style={{ marginTop: '2rem' }} block>
