@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+var path = require('path');
 
 const items = require('./routes/api/items');
 const orders = require('./routes/api/orders');
@@ -9,7 +9,7 @@ const app = express();
 
 var http = require('http')
 var server = http.Server(app);
-
+app.use(express.static(path.join(__dirname, 'client','build')));
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
@@ -27,9 +27,9 @@ mongoose
 app.use('/api/items', items);
 app.use('/api/orders', orders);
 
-var path = require('path');
 
-app.use(express.static(path.join(__dirname, 'client/public')));
+
+// app.use(express.static(path.join(__dirname, 'client/public')));
 
 //if (process.env.NODE_ENV === 'production') {
 //  app.use(express.static('client/public/'));
@@ -37,21 +37,15 @@ app.use(express.static(path.join(__dirname, 'client/public')));
 //    res.sendFile(path.join(__dirname + '/../client/build/index.html'));
 //  });
 //}
-app.use(express.static(path.join(__dirname, 'client/build')));
 
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-app.use(express.static(path.join(__dirname, 'client/build')));
-// Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname = '/client/build'));
-  });
-}
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname,'client','build','index.html'));
+});
 
-//build
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/public/index.html'));
-})
+ //build
+ app.get('*', (req, res) => {
+   res.sendFile(path.join(__dirname+'/client/public/index.html'));
+ })
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server started on port ${port}`));
