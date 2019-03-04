@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { getItems, deleteItem } from '../actions/orderActions';
+import { getItems, deleteItem} from '../actions/itemActions';
+import { getItems2, deleteItem2 } from '../actions/orderActions';
 import PropTypes from 'prop-types';
 import TableButtonModal from './Table/TableButtonModal';
 
@@ -13,7 +14,14 @@ class ShoppingList extends Component {
 
   onDeleteClick = id => {
     console.log(id);
+    console.log(this);  
     this.props.deleteItem(id);
+  };
+
+  onDeleteClick2 = id => {
+    console.log(id);
+    console.log(this);  
+    this.props.deleteItem2(id);
   };
 
   render() {
@@ -30,11 +38,17 @@ class ShoppingList extends Component {
                     className="remove-btn"
                     color="danger"
                     size="sm"
-                    onClick={this.onDeleteClick.bind(this, _id)}
+                    onClick={()=>{this.onDeleteClick.bind(this, _id);
+                              this.props.getItems();
+                    }}
                   >
                    Remove Table
                   </Button>
-                  {name} Person Table {_id} {order}<TableButtonModal></TableButtonModal>
+                  {name} Person Table {_id} {order}
+                  <div>
+                  <br></br>
+                  <TableButtonModal></TableButtonModal>
+                  </div>
                 </ListGroupItem>
               </CSSTransition>
             ))}
@@ -57,5 +71,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getItems, deleteItem }
+  { getItems, deleteItem, getItems2, deleteItem2 }
 )(ShoppingList);

@@ -26,7 +26,8 @@ class ItemModal extends Component {
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log([e.target.value])
+    console.log([e.target.value]);
+    console.log( [e.target.name]);
   };
 
   onSubmit = e => {
@@ -34,6 +35,7 @@ class ItemModal extends Component {
 
     const newItem = {
       name: this.state.name,
+      order: this.state.order
     };
 
     // Add item via addItem action
