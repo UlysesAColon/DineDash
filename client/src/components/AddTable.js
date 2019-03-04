@@ -26,18 +26,20 @@ class ItemModal extends Component {
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log([e.target.value])
   };
 
   onSubmit = e => {
     e.preventDefault();
 
     const newItem = {
-      name: this.state.name
+      name: this.state.name,
     };
 
     // Add item via addItem action
     this.props.addItem(newItem);
 
+    console.log(newItem);
     // Close modal
     this.toggle();
   };
@@ -50,7 +52,7 @@ class ItemModal extends Component {
           style={{ marginBottom: '2rem' }}
           onClick={this.toggle}
         >
-          New Menu Item
+         Add Table
         </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
@@ -58,16 +60,16 @@ class ItemModal extends Component {
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="item">Item</Label>
+                <Label for="item">Table Size</Label>
                 <Input
                   type="text"
                   name="name"
                   id="item"
-                  placeholder="Add menu item"
+                  placeholder="Add new table"
                   onChange={this.onChange}
                 />
                 <Button color="dark" style={{ marginTop: '2rem' }} block>
-                  Add Menu Item
+                  Add new table
                 </Button>
               </FormGroup>
             </Form>
@@ -80,6 +82,7 @@ class ItemModal extends Component {
 
 const mapStateToProps = state => ({
   item: state.item
+
 });
 
 export default connect(
