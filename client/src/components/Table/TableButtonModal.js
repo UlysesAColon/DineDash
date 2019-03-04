@@ -19,7 +19,11 @@ class TableButtonModal extends Component {
     name: "",
     order: "",
     number: "0",
-    note: ""
+    number2: "0",
+    number3: "0",
+    note: "",
+    note2: "",
+    note3: ""
   };
 
   toggle = () => {
@@ -32,9 +36,25 @@ class TableButtonModal extends Component {
     this.setState({number:event.target.value})
   };
 
+  updateNumber2(event){
+    this.setState({number2:event.target.value})
+  };
+
+  updateNumber3(event){
+    this.setState({number3:event.target.value})
+  };
+
   updateNote (event){
     this.setState({note:event.target.value});
   };
+
+  updateNote2 (event){
+    this.setState({note2:event.target.value});
+  };
+  updateNote3 (event){
+    this.setState({note3:event.target.value});
+  };
+
 
   onChange = e => {
     this.setState({ [e.target.order]: e.target.value });
@@ -83,8 +103,7 @@ class TableButtonModal extends Component {
             <Input type="radio" name="Chicken Wings" value="Chicken Wings" onChange={this.onSubmit}/>
             Chicken Wings
            
-            <Input type="number" name="name" value={this.state.number} onChange={this.updateNumber.bind(this)} />
-            
+            <Input type="number" name="name" value={this.state.number} onChange={this.updateNumber.bind(this)} />  
             <Input type="text" name="name" value={this.state.note} onChange={this.updateNote.bind(this)}  onSubmit={this.onSubmit}/>
             </label>
             </div>
@@ -93,17 +112,17 @@ class TableButtonModal extends Component {
             <Input type="radio" name="name" value="French_fries" onChange={this.onSubmit}/>
             French Fries
 
-            <Input type="number" name="name" value={this.state.number} onChange={this.updateNumber.bind(this)} />
-            <Input type="text" name="name" value={this.state.note} onChange={this.updateNote.bind(this)} />
+            <Input type="number" name="name" value={this.state.number2} onChange={this.updateNumber2.bind(this)} />
+            <Input type="text" name="name" value={this.state.note2} onChange={this.updateNote2.bind(this)} />
             </label>
             </div>
             <div className="radio">
             <label>
             <Input type="radio" name="name" value="Cheeseburger" onChange={this.onChange}  />
             Cheeseburger
-            
-            <Input type="number" name="name" value={this.state.number} onChange={this.updateNumber.bind(this)} />
-            <Input type="text" name="name" value={this.state.note} onChange={this.updateNote.bind(this)} />
+
+            <Input type="number" name="name" value={this.state.number3} onChange={this.updateNumber3.bind(this)} />
+            <Input type="text" name="name" value={this.state.note3} onChange={this.updateNote3.bind(this)} />
             </label>
             </div>
                 <Button color="dark" style={{ marginTop: '2rem' }} block>
