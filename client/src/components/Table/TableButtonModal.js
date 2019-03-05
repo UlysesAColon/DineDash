@@ -10,7 +10,7 @@ import {
   Container
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { addItem } from '../../actions/itemActions';
+import { addOrder } from '../../actions/itemActions';
 
 
 class TableButtonModal extends Component {
@@ -66,14 +66,14 @@ class TableButtonModal extends Component {
     e.preventDefault();
 
     const newItem = {
-      name: e.target.name,
+      name: e.target.value,
       order: e.target.value,
       orderamount: e.target.value,
       note: e.target.note
     };
 
     // Add item via addItem action
-    this.props.addItem(newItem);
+    this.props.addOrder(newItem);
 
     console.log(newItem);
     // Close modal
@@ -145,5 +145,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addItem }
+  { addOrder }
 )(TableButtonModal);

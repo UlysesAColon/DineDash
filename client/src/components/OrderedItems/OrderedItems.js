@@ -22,10 +22,10 @@ class OrderedItems extends Component {
       <Container>
         <ListGroup>
           <TransitionGroup className="shopping-list">
-            {items.map(({ _id, order, orderamount}) => (
+            {items.map(({ _id, order, number}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem font="strong">
-                  {order} Ordered Items {orderamount}
+                  {order} - {number}
                 </ListGroupItem>
               </CSSTransition>
             ))}
