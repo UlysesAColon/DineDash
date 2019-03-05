@@ -68,8 +68,12 @@ class TableButtonModal extends Component {
     const newItem = {
       name: e.target.value,
       order: e.target.value,
-      orderamount: e.target.value,
-      note: e.target.note
+      orderamount: this.state.number,
+      orderamount2: this.state.number2,
+      orderamount3: this.state.number3,
+      note: this.state.note,
+      note2: this.state.note2,
+      note3: this.state.note3
     };
 
     // Add item via addItem action
@@ -102,9 +106,12 @@ class TableButtonModal extends Component {
             <label>
             <Input type="radio" name="Chicken Wings" value="Chicken Wings" onChange={this.onSubmit}/>
             Chicken Wings
-           
-            <Input type="number" name="name" value={this.state.number} onChange={this.updateNumber.bind(this)} />  
+
+            <Input type="number" name="name" value={this.state.number} onChange={this.updateNumber.bind(this)} onSubmit={this.onSubmit} />  
+            
             <Input type="text" name="name" value={this.state.note} onChange={this.updateNote.bind(this)}  onSubmit={this.onSubmit}/>
+            
+            
             </label>
             </div>
             <div className="radio">
@@ -118,7 +125,7 @@ class TableButtonModal extends Component {
             </div>
             <div className="radio">
             <label>
-            <Input type="radio" name="name" value="Cheeseburger" onChange={this.onChange}  />
+            <Input type="radio" name="name" value="Cheeseburger" onChange={this.onSubmit}  />
             Cheeseburger
 
             <Input type="number" name="name" value={this.state.number3} onChange={this.updateNumber3.bind(this)} />
