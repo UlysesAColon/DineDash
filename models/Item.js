@@ -14,6 +14,10 @@ const ItemSchema = new Schema({
     order: {
         type: String,
         required: false
+    },
+    number: {
+        type: Number,
+        required: false
     }
 });
 

@@ -25,6 +25,7 @@ class ItemModal extends Component {
   };
 
   onChange = e => {
+    // and here
     this.setState({ [e.target.name]: e.target.value });
     console.log([e.target.value]);
     console.log( [e.target.name]);
@@ -32,16 +33,18 @@ class ItemModal extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+// occurs right here
 
     const newItem = {
       name: this.state.name,
       order: this.state.order,
-      orderamount: this.state.number,
+      number: this.state.number,
       orderamount2: this.state.number2,
       orderamount3: this.state.number3,
       note: this.state.note,
       note2: this.state.note2,
-      note3: this.state.note3
+      note3: this.state.note3,
+      tablenumber: 0
     };
 
     // Add item via addItem action

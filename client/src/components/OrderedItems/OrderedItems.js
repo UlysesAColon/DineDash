@@ -7,6 +7,19 @@ import PropTypes from 'prop-types';
 
 
 class OrderedItems extends Component {
+  
+  state = {
+    modal: false,
+    order: "",
+    number: "0",
+    number2: "0",
+    number3: "0",
+    note: "",
+    note2: "",
+    note3: ""
+  };
+
+  
   componentDidMount() {
     this.props.getItems();
   }
@@ -22,11 +35,11 @@ class OrderedItems extends Component {
       <Container>
         <ListGroup>
           <TransitionGroup className="shopping-list">
-            {items.map(({ _id, order, orderamount, number2}) => (
+            {items.map(({ _id, name, order}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem font="strong">
-                  {order} - {orderamount}
-                  {number2}
+                   <p>{name} Person Table order: </p> 
+                    {order}
                 </ListGroupItem>
               </CSSTransition>
             ))}
