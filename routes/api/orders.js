@@ -16,13 +16,13 @@ router.get('/', (req, res)=>{
 //  @route  POST api/orders
 // @desc    Create A Orders
 // @access  Public
-router.post('/', (req, res)=>{
+router.post('/api/orders', (req, res)=>{
     const newOrder = new Order({
       name: req.body.name,
       order: req.body.order
     });
 
-    newOrder.save().then(order => res.json(item));
+    newOrder.save().then(order => res.json(order));
 });
 
 //  @route  DELETE api/orders/:id

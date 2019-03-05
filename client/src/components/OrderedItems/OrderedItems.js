@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { getItems, deleteItem } from './../../actions/orderActions';
+import { getItems2, deleteItem2 } from './../../actions/orderActions';
 import PropTypes from 'prop-types';
 
 
 class OrderedItems extends Component {
   componentDidMount() {
-    this.props.getItems();
+    this.props.getItems2();
   }
 
   onDeleteClick = id => {
-    this.props.deleteItem(id);
+    this.props.deleteItem2(id);
   };
 
   render() {
@@ -22,10 +22,10 @@ class OrderedItems extends Component {
       <Container>
         <ListGroup>
           <TransitionGroup className="shopping-list">
-            {items.map(({ _id, order}) => (
+            {items.map(({ _id, order, orderamount}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem font="strong">
-                  {order} Ordered Items
+                  {order} Ordered Items {orderamount}
                 </ListGroupItem>
               </CSSTransition>
             ))}
@@ -38,7 +38,7 @@ class OrderedItems extends Component {
 }
 
 OrderedItems.propTypes = {
-  getItems: PropTypes.func.isRequired,
+  getItems2: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired
 };
 
@@ -48,5 +48,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getItems, deleteItem }
+  { getItems2, deleteItem2 }
 )(OrderedItems);

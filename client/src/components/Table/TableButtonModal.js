@@ -6,7 +6,6 @@ import {
   ModalBody,
   Form,
   FormGroup,
-  Label,
   Input,
   Container
 } from 'reactstrap';
@@ -18,8 +17,13 @@ class TableButtonModal extends Component {
   state = {
     modal: false,
     name: "",
-    order: "order",
-    orderamount: "Amount"
+    order: "",
+    number: "0",
+    number2: "0",
+    number3: "0",
+    note: "",
+    note2: "",
+    note3: ""
   };
 
   toggle = () => {
@@ -28,18 +32,44 @@ class TableButtonModal extends Component {
     });
   };
 
+  updateNumber(event){
+    this.setState({number:event.target.value})
+  };
+
+  updateNumber2(event){
+    this.setState({number2:event.target.value})
+  };
+
+  updateNumber3(event){
+    this.setState({number3:event.target.value})
+  };
+
+  updateNote (event){
+    this.setState({note:event.target.value});
+  };
+
+  updateNote2 (event){
+    this.setState({note2:event.target.value});
+  };
+  updateNote3 (event){
+    this.setState({note3:event.target.value});
+  };
+
+
   onChange = e => {
     this.setState({ [e.target.order]: e.target.value });
     console.log([e.target.value]);
+    console.log( [e.target.name]);
   };
 
   onSubmit = e => {
     e.preventDefault();
 
     const newItem = {
-      name: this.state.name,
-      order: this.state.order,
-      orderamount: this.state.orderamount
+      name: e.target.name,
+      order: e.target.value,
+      orderamount: e.target.value,
+      note: e.target.note
     };
 
     // Add item via addItem action
@@ -70,26 +100,29 @@ class TableButtonModal extends Component {
               <FormGroup>
             <div className="radio">
             <label>
-            <Input type="radio" value="chicken_wings" onChange={this.onChange}/>
+            <Input type="radio" name="Chicken Wings" value="Chicken Wings" onChange={this.onSubmit}/>
             Chicken Wings
-            <Input type="number" name="name" id="itemamount" onChange={this.onChange} />
-            <Input type="text" name="note" id="noteid" onChange={this.onChange} />
+           
+            <Input type="number" name="name" value={this.state.number} onChange={this.updateNumber.bind(this)} />  
+            <Input type="text" name="name" value={this.state.note} onChange={this.updateNote.bind(this)}  onSubmit={this.onSubmit}/>
             </label>
             </div>
             <div className="radio">
             <label>
-            <Input type="radio" value="french_fries" onChange={this.onChange}/>
+            <Input type="radio" name="name" value="French_fries" onChange={this.onSubmit}/>
             French Fries
-            <Input type="number" name="amount" id="itemamount" onChange={this.onChange} />
-            <Input type="text" name="note" id="noteid" onChange={this.onChange} />
+
+            <Input type="number" name="name" value={this.state.number2} onChange={this.updateNumber2.bind(this)} />
+            <Input type="text" name="name" value={this.state.note2} onChange={this.updateNote2.bind(this)} />
             </label>
             </div>
             <div className="radio">
             <label>
-            <Input type="radio" value="Cheeseburger" onChange={this.onChange}  />
+            <Input type="radio" name="name" value="Cheeseburger" onChange={this.onChange}  />
             Cheeseburger
-            <Input type="number" name="amount" id="itemamount" onChange={this.onChange}/>
-            <Input type="text" name="note" id="noteid" onChange={this.onChange}/>
+
+            <Input type="number" name="name" value={this.state.number3} onChange={this.updateNumber3.bind(this)} />
+            <Input type="text" name="name" value={this.state.note3} onChange={this.updateNote3.bind(this)} />
             </label>
             </div>
                 <Button color="dark" style={{ marginTop: '2rem' }} block>
