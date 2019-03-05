@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { getItems2, deleteItem2 } from './../../actions/orderActions';
+import { getItems, deleteItem } from './../../actions/itemActions';
 import PropTypes from 'prop-types';
 
 
 class OrderedItems extends Component {
   componentDidMount() {
-    this.props.getItems2();
+    this.props.getItems();
   }
 
   onDeleteClick = id => {
-    this.props.deleteItem2(id);
+    this.props.deleteItem(id);
   };
 
   render() {
@@ -39,7 +39,7 @@ class OrderedItems extends Component {
 }
 
 OrderedItems.propTypes = {
-  getItems2: PropTypes.func.isRequired,
+  getItems: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired
 };
 
@@ -49,5 +49,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getItems2, deleteItem2 }
+  { getItems, deleteItem }
 )(OrderedItems);

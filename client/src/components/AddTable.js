@@ -35,7 +35,13 @@ class ItemModal extends Component {
 
     const newItem = {
       name: this.state.name,
-      order: this.state.order
+      order: this.state.order,
+      orderamount: this.state.number,
+      orderamount2: this.state.number2,
+      orderamount3: this.state.number3,
+      note: this.state.note,
+      note2: this.state.note2,
+      note3: this.state.note3
     };
 
     // Add item via addItem action
