@@ -42,7 +42,6 @@ class ShoppingList extends Component {
                   >
                    Remove Table
                   </Button>
-                  {name} Person Table {_id} {order}
                   <div>
                   <br></br>
                   <TableButtonModal></TableButtonModal>
