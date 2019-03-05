@@ -19,3 +19,7 @@
     opacity: 0.01;
     transition: opacity 1000ms ease-in;
   }
+
+  .body {
+    background-image: url("https://thechampagnemile.com.au/wp-content/uploads/2017/08/Flatlay-dining-stock-adele-1000x500.jpeg");
+  }
