@@ -38,13 +38,10 @@ class ShoppingList extends Component {
                     className="remove-btn"
                     color="danger"
                     size="sm"
-                    onClick={()=>{this.onDeleteClick.bind(this, _id);
-                              this.props.getItems();
-                    }}
+                    onClick={this.onDeleteClick.bind(this, _id)}
                   >
                    Remove Table
                   </Button>
-                  {name} Person Table {_id} {order}
                   <div>
                   <br></br>
                   <TableButtonModal></TableButtonModal>
