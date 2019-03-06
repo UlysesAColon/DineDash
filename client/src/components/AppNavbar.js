@@ -9,6 +9,7 @@ import {
     NavLink,
     Container
 } from 'reactstrap';
+import SideNav from './Sidenav/SideNav'
 
 class AppNavbar extends Component {
     state = {
@@ -25,8 +26,11 @@ class AppNavbar extends Component {
         return (
         <div>
             <Navbar color="dark" dark expand="sm" className="mb-5">
+                    <SideNav />
                 <Container>
-                    <NavbarBrand href="/">Dine Dash</NavbarBrand>
+                    <div>
+                    <NavbarBrand href="/" strong >Dine Dash</NavbarBrand>
+                    </div>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
