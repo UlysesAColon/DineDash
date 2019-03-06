@@ -3,7 +3,8 @@ import {
     ADD_ITEM,
     DELETE_ITEM,
     ITEMS_LOADING,
-    ADD_ORDER
+    ADD_ORDER,
+    UPDATE_ORDER
   } from '../actions/types';
   
   const initialState = {
@@ -39,6 +40,11 @@ import {
           ...state,
           items: [action.payload, ...state.items]
         }
+      case UPDATE_ORDER:
+        return{
+          ...state,
+          items: [action.payload, ...state.items]
+        }  
       default:
         return state;
     }

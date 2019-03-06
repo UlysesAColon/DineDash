@@ -1,5 +1,6 @@
 .remove-btn{
     margin-right: 0.5rem;
+   
 }
 
 .fade-enter {
@@ -18,4 +19,35 @@
   .fade-exit-active {
     opacity: 0.01;
     transition: opacity 1000ms ease-in;
+  }
+  body{
+    background: #008080 ;
+  }
+  .list-group{
+    background: rgb(235, 228, 228);
+    background-image:url("https://www.chicohotsprings.com/wp-content/uploads/2018/03/montana-dining.jpg");
+    background-repeat: cover;
+    border-color: blanchedalmond;
+  }
+  .list-group-item {
+    background-color: rgba(105,100,100,0.8);
+    color: aliceblue;
+    border-color: floralwhite;
+    border-radius: 25px;
+  }
+  .shopping-list{
+    background-color: #ffffff00;
+
+  }
+  .tbl-btn {
+    opacity: .8;
+  }
+
+  .order-list-group {
+    background-image:url("https://www.britishairways.com/assets/images/MediaHub/Media-Database/Royalty-free-RF/Food-and-drink/First/Food_01_First_Taster_Menu_Pork_870x290.jpg");
+  }
+
+  .order{
+    background-color:#D3D3D308;
+    color: white;
   }
