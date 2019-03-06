@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, Button, Row, Col } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem} from '../actions/itemActions';
@@ -28,12 +28,15 @@ class ShoppingList extends Component {
     const { items } = this.props.item;
     return (
       <div>
-      <Container>
+      <Container className="container-body">
         <ListGroup>
+        <Container>
+          <Row>
+          <Col xs="6">
           <TransitionGroup className="shopping-list">
-            {items.map(({ _id, name, order }) => (
+            {items.map(({ _id, name, order, number }) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
-                <ListGroupItem font="strong">
+                <ListGroupItem class="list-group" font="strong">
                   <Button
                     className="remove-btn"
                     color="danger"
@@ -44,12 +47,19 @@ class ShoppingList extends Component {
                   </Button>
                   <div>
                   <br></br>
-                  <TableButtonModal></TableButtonModal>
+                  <p>{name} Person Table </p>
                   </div>
+           
+             <Col xs="6">
+            <TableButtonModal></TableButtonModal>
+              </Col> 
                 </ListGroupItem>
               </CSSTransition>
             ))}
           </TransitionGroup>
+          </Col>    
+        </Row>
+        </Container>
         </ListGroup>
       </Container>
       </div>

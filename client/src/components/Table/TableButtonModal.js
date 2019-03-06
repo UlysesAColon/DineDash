@@ -10,10 +10,11 @@ import {
   Container
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { addOrder } from '../../actions/itemActions';
+import { addItem, updateOrder } from '../../actions/itemActions';
 
 
 class TableButtonModal extends Component {
+
   state = {
     modal: false,
     name: "",
@@ -67,24 +68,26 @@ class TableButtonModal extends Component {
 
     const newItem = {
       name: e.target.value,
-      order: e.target.value,
-      orderamount: this.state.number,
-      orderamount2: this.state.number2,
-      orderamount3: this.state.number3,
-      note: this.state.note,
-      note2: this.state.note2,
-      note3: this.state.note3
+      order: e.target.name,
+      orderamount: e.target.value,
+      orderamount2: e.target.value,
+      orderamount3: e.target.value,
+      note: e.target.value,
+      note2: e.target.value,
+      note3: e.target.value
     };
 
     // Add item via addItem action
-    this.props.addOrder(newItem);
+    this.props.addItem(newItem);
+    this.props.updateOrder(newItem);
 
     console.log(newItem);
     // Close modal
     this.toggle();
   };
-
+  
   render() {
+    const { items } = this.props.item;
     return (
       <div>
         <Button
@@ -94,6 +97,7 @@ class TableButtonModal extends Component {
         >
           Place Order
         </Button>
+              {items.map(({ _id, name, order}) => ( 
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Current Order</ModalHeader>
@@ -104,43 +108,46 @@ class TableButtonModal extends Component {
               <FormGroup>
             <div className="radio">
             <label>
-            <Input type="radio" name="Chicken Wings" value="Chicken Wings" onChange={this.onSubmit}/>
+            <Input type="radio" name="Chicken Wings" value={name} onChange={this.onSubmit}/>
             Chicken Wings
-
-            <Input type="number" name="name" value={this.state.number} onChange={this.updateNumber.bind(this)} onSubmit={this.onSubmit} />  
+{/* 
+            <Input type="number" name="name" value="89" onChange={this.updateNumber.bind(this)} onSubmit={this.onSubmit} />  
             
             <Input type="text" name="name" value={this.state.note} onChange={this.updateNote.bind(this)}  onSubmit={this.onSubmit}/>
             
-            
+             */}
             </label>
             </div>
             <div className="radio">
             <label>
-            <Input type="radio" name="name" value="French_fries" onChange={this.onSubmit}/>
+            <Input type="radio" name="French Fries" value={name} onChange={this.onSubmit}/>
             French Fries
 
-            <Input type="number" name="name" value={this.state.number2} onChange={this.updateNumber2.bind(this)} />
+            {/* <Input type="number" name="name" value={this.state.number2} onChange={this.updateNumber2.bind(this)} />
             <Input type="text" name="name" value={this.state.note2} onChange={this.updateNote2.bind(this)} />
+             */}
             </label>
             </div>
             <div className="radio">
             <label>
-            <Input type="radio" name="name" value="Cheeseburger" onChange={this.onSubmit}  />
+            <Input type="radio" name="Cheeseburger" value={name} onChange={this.onSubmit}  />
             Cheeseburger
-
+{/* 
             <Input type="number" name="name" value={this.state.number3} onChange={this.updateNumber3.bind(this)} />
-            <Input type="text" name="name" value={this.state.note3} onChange={this.updateNote3.bind(this)} />
+            <Input type="text" name="name" value={this.state.note3} onChange={this.updateNote3.bind(this)} /> */}
             </label>
+            
             </div>
-                <Button color="dark" style={{ marginTop: '2rem' }} block>
-                 Place Order
-                </Button>
-              </FormGroup>
+            <Button color="dark" style={{ marginTop: '2rem' }} block>
+             Place Order
+            </Button>
+            </FormGroup>
             </Form>
             </div>
             </Container>
           </ModalBody>
         </Modal>
+                ))}    
       </div>
     );
   }
@@ -152,5 +159,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addOrder }
+  { addItem, updateOrder }
 )(TableButtonModal);

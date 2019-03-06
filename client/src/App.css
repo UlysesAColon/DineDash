@@ -1,5 +1,6 @@
 .remove-btn{
     margin-right: 0.5rem;
+   
 }
 
 .fade-enter {
@@ -19,7 +20,41 @@
     opacity: 0.01;
     transition: opacity 1000ms ease-in;
   }
+<<<<<<< HEAD
 
   .body {
     background-image: url("https://thechampagnemile.com.au/wp-content/uploads/2017/08/Flatlay-dining-stock-adele-1000x500.jpeg");
   }
+=======
+  body{
+    background: #008080 ;
+  }
+  .list-group{
+    background: rgb(235, 228, 228);
+    background-image:url("https://www.chicohotsprings.com/wp-content/uploads/2018/03/montana-dining.jpg");
+    background-repeat: cover;
+    border-color: blanchedalmond;
+  }
+  .list-group-item {
+    background-color: rgba(105,100,100,0.8);
+    color: aliceblue;
+    border-color: floralwhite;
+    border-radius: 25px;
+  }
+  .shopping-list{
+    background-color: #ffffff00;
+
+  }
+  .tbl-btn {
+    opacity: .8;
+  }
+
+  .order-list-group {
+    background-image:url("https://www.britishairways.com/assets/images/MediaHub/Media-Database/Royalty-free-RF/Food-and-drink/First/Food_01_First_Taster_Menu_Pork_870x290.jpg");
+  }
+
+  .order{
+    background-color:#D3D3D308;
+    color: white;
+  }
+>>>>>>> ce9818ef9001c8da92ee348222a10c76b4c0bbe2

@@ -19,10 +19,21 @@ router.get('/', (req, res)=>{
 router.post('/', (req, res)=>{
     const newItem = new Item({
       name: req.body.name,
-      order: req.body.order
+      order: req.body.order,
+      number: req.body.number
     });
 
     newItem.save().then(item => res.json(item));
+});
+
+router.put('/', (req, res)=>{
+  const newItem = new Item({  
+    order: req.body.name
+  });
+
+  newItem.save().then(res =>{
+    console.log(res.data);
+});
 });
 
 //  @route  DELETE api/items/:id
