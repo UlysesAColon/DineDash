@@ -138,10 +138,10 @@ class TableButtonModal extends Component {
             </label>
             
             </div>
-                <Button color="dark" style={{ marginTop: '2rem' }} block>
-                 Place Order
-                </Button>
-              </FormGroup>
+            <Button color="dark" style={{ marginTop: '2rem' }} block>
+             Place Order
+            </Button>
+            </FormGroup>
             </Form>
             </div>
             </Container>

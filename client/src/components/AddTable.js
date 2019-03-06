@@ -79,7 +79,7 @@ class ItemModal extends Component {
                   placeholder="Add new table"
                   onChange={this.onChange}
                 />
-                <Button color="dark" style={{ marginTop: '2rem' }} block>
+                <Button class="tbl-btn" color="dark" style={{ marginTop: '2rem' }} block>
                   Add new table
                 </Button>
               </FormGroup>

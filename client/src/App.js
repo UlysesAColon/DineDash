@@ -25,7 +25,10 @@ class App extends Component {
             <ShoppingList />
           </Container>
           <Container>
+          <br></br>
+          <div>
           <OrderedItems />
+          </div>
           </Container>
         </div>
       </Provider>

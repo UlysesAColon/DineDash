@@ -37,9 +37,11 @@ class OrderedItems extends Component {
           <TransitionGroup className="shopping-list">
             {items.map(({ _id, name, order}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
-                <ListGroupItem font="strong">
+                <ListGroupItem className="order-list-group" font="strong">
+                    <div class="order">
                    <p>{name} Person Table order: </p> 
                     {order}
+                    </div>
                 </ListGroupItem>
               </CSSTransition>
             ))}
