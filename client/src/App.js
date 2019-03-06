@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AppNavbar from './components/AppNavbar';
 import ShoppingList from './components/ShoppingList';
-
 import { Container } from 'reactstrap';
 
 import { Provider } from 'react-redux';
@@ -14,12 +13,13 @@ import OrderedItems from './components/OrderedItems/OrderedItems';
 
 
 
+
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <div className="App">
-          <AppNavbar />      
+          <AppNavbar />     
           <Container>
             <AddTable />
             <ShoppingList />
