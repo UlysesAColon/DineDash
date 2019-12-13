@@ -35,7 +35,7 @@
     "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.14",
-    "npm": "^6.8.0",
+    "npm": "^6.13.4",
     "postinstall": "^0.4.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
